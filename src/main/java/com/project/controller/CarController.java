@@ -34,9 +34,7 @@ public class CarController {
 
   @GetMapping("/{id}")
   public Car getCarById(@PathVariable Long id) {
-    return carRepository.findById(id).orElseThrow(() -> {
-      return new CarNotFoundException(id);
-    });
+    return carRepository.findById(id).orElseThrow(() -> new CarNotFoundException(id));
   }
 
   @PostMapping
